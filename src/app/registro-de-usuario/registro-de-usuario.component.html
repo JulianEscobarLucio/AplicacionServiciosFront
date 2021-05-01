@@ -1,0 +1,120 @@
+<app-encabezado></app-encabezado>
+<app-navegador-publico></app-navegador-publico>
+<div class="container">
+    <div class="row text-center login-page">
+        <div class="col-md-12 login-form">
+            <form>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="tipoDocumento">Tipo de documento*</label>
+                        <select class="form-control" [(ngModel)]="usuario.tipoDeDocumento" name="tipoDeDocumento" (change)="cambioDato()">
+                            <option value="" disabled selected>Seleccionar un tipo de documento</option>
+                            <option [ngValue]="tipodedocumento.id" *ngFor="let tipodedocumento of tipoDeDocumentos" >{{tipodedocumento.valor}}</option> -->
+                         </select>
+                        <span class="badge badge-danger" *ngIf="mensajeTipoDocumento">{{mensajeTipoDocumento}}</span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="documento">Documento*</label>
+                        <input [(ngModel)]="usuario.numeroDeDocumento" type="text" class="form-control" id="documento" placeholder="Documento" name="documento" (keyup)="cambioDato()">
+                        <span class="badge badge-danger" *ngIf="mensajeDocumento">{{mensajeDocumento}}</span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="primerNombre">Primer nombre*</label>
+                        <input [(ngModel)]="usuario.primerNombre" type="text" class="form-control" id="primerNombre" placeholder="Primer nombre" name="primerNombre" (keyup)="cambioDato()">
+                        <span class="badge badge-danger" *ngIf="mensajePrimerNombre">{{mensajePrimerNombre}}</span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="segundoNombre">Segundo nombre</label>
+                        <input [(ngModel)]="usuario.segundoNombre" type="text" class="form-control" id="segundoNombre" placeholder="Segundo nombre" name="segundoNombre">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="primerApellido">Primer Apellido*</label>
+                        <input [(ngModel)]="usuario.primerApellido" type="text" class="form-control" id="primerApellido" placeholder="Primer Apellido" name="primerApellido" (keyup)="cambioDato()">
+                        <span class="badge badge-danger" *ngIf="mensajePrimerApellido">{{mensajePrimerApellido}}</span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="segundoApellido">Segundo Apellido</label>
+                        <input [(ngModel)]="usuario.segundoApellido" type="text" class="form-control" id="segundoApellido" placeholder="Segundo Apellido" name="segundo">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="pais">Pais*</label>
+                        <input [(ngModel)]="usuario.pais" type="text" class="form-control" id="pais">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="departamento">Departamento*</label>
+                        <input [(ngModel)]="usuario.departamento" type="text" class="form-control" id="departamento" placeholder="Departamento" name="departamento">
+
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="ciudad">Ciudad*</label>
+                        <select class="form-control" [(ngModel)]="usuario.ciudad" name="ciudad" (change)="cambioDato()">
+                            <option value="" disabled selected>Seleccionar una ciudad</option>
+                            <option [ngValue]="ciudad.id" *ngFor="let ciudad of municipios" >{{ciudad.valor}}</option> 
+                         </select>
+                        <span class="badge badge-danger" *ngIf="mensajeCiudad">{{mensajeCiudad}}</span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="direccion">Dirección*</label>
+                        <input [(ngModel)]="usuario.direccion" type="text" class="form-control" id="direccion" placeholder="Dirección" name="direccion" (keyup)="cambioDato()">
+                        <span class="badge badge-danger" *ngIf="mensajeDireccion">{{mensajeDireccion}}</span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="telefono">Teléfono*</label>
+                        <input [(ngModel)]="usuario.telefono" type="text" class="form-control" id="telefono" placeholder="Teléfono" name="telefono" (keyup)="cambioDato()">
+                        <span class="badge badge-danger" *ngIf="mensajeTelefono">{{mensajeTelefono}}</span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="correo">Correo eléctronico</label>
+                        <input [(ngModel)]="usuario.correo" type="email" class="form-control" id="correo" placeholder="Correo eléctronico" name="correo">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="usuario">Usuario*</label>
+                        <input [(ngModel)]="usuario.usuario" type="text" class="form-control" id="usuario" placeholder="Usuario" name="usuario" (keyup)="cambioDato()">
+                        <span class="badge badge-danger" *ngIf="mensajeUsuario">{{mensajeUsuario}}</span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="contrasena">Contraseña*</label>
+                        <input [(ngModel)]="usuario.constrasena" type="password" class="form-control" id="contrasena" placeholder="Contraseña" name="constrasena" (keyup)="cambioDato()">
+                        <span class="badge badge-danger" *ngIf="mensajeContrasena">{{mensajeContrasena}}</span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="confirmar">Confirmar contraseña*</label>
+                        <input [(ngModel)]="usuario.confirmarContrasena" type="password" class="form-control" id="confirmar" placeholder="Confirmar contraseña" name="confirmar" (keyup)="cambioDato()">
+                        <span class="badge badge-danger" *ngIf="mensajeconfirmar">{{mensajeconfirmar}}</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                </div>
+                <ng-template #content let-c="close" let-d="dismiss">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="modal-basic-title">Hola!</h4>
+                        <button type="button" aria-label="Close" (click)="d('Cross click')">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>{{mensajeServicioGuardar}}</p>
+                    </div>
+                </ng-template>
+                <button type="submit" class="btn btn-primary" (click)="guardarUsuario()">Enviar</button>
+                <br/>
+                <span class="badge badge-danger" *ngIf="mensajeboton">{{mensajeboton}}</span>
+            </form>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>
