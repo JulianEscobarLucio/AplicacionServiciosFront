@@ -17,6 +17,9 @@ import { InicioDeSesionComponent } from './inicio-de-sesion/inicio-de-sesion.com
 import { RegistroDeUsuarioComponent } from './registro-de-usuario/registro-de-usuario.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ModalComponent } from './modal/modal.component';
+import { NgxSpinnerModule } from "ngx-spinner";
+
 
 
 @NgModule({
@@ -31,7 +34,9 @@ import { HttpClientModule } from '@angular/common/http';
     NavegadorPublicoComponent,
     EncabezadoComponent,
     InicioDeSesionComponent,
-    RegistroDeUsuarioComponent
+    RegistroDeUsuarioComponent,
+    ModalComponent,
+    NgxSpinnerModule
   ],
   imports: [
     BrowserModule,
