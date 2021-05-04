@@ -18,6 +18,9 @@ import { RegistroDeUsuarioComponent } from './registro-de-usuario/registro-de-us
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ModalComponent } from './modal/modal.component';
+import { MisionComponent } from './mision/mision.component';
+import { VisionComponent } from './vision/vision.component';
+import { PrincipiosComponent } from './principios/principios.component';
 // import { NgxSpinnerModule } from 'ngx-spinner';
 
 
@@ -35,7 +38,10 @@ import { ModalComponent } from './modal/modal.component';
     EncabezadoComponent,
     InicioDeSesionComponent,
     RegistroDeUsuarioComponent,
-    ModalComponent
+    ModalComponent,
+    MisionComponent,
+    VisionComponent,
+    PrincipiosComponent
     // ,NgxSpinnerModule
   ],
   imports: [
