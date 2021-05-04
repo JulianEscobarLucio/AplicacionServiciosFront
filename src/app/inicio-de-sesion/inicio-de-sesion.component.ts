@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Usuario } from '../modelos/usuario';
 import { ServicioUsuarioService } from '../servicios/servicio-usuario.service';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { NgxSpinnerService } from "ngx-spinner";
+// import { NgxSpinnerService } from "ngx-spinner";
 @Component({
   selector: 'app-inicio-de-sesion',
   templateUrl: './inicio-de-sesion.component.html',
