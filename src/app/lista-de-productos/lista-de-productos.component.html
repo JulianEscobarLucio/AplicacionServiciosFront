@@ -1,49 +1,33 @@
 <!-- Carousel wrapper -->
+<div class="titulo">
+    <h1>Servicios</h1>
+</div>
+<br/>
+<br/>
 <div id="carouselMultiItemExample" class="carousel slide carousel-dark text-center" data-mdb-ride="carousel">
     <!-- Inner -->
-    <div class="carousel-inner py-4">
+    <div class="carousel-inner py-8">
         <!-- Single item -->
         <div class="carousel-item active">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-4">
+                    <div class="col-lg-3" *ngFor="let servicio of servicios">
                         <div class="card">
-                            <img src="https://mdbootstrap.com/img/new/standard/nature/181.jpg" class="card-img-top" alt="..." />
+                            <img src="{{servicio.imagen}}" class="card-img-top" alt="..." />
                             <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
+                                <h5 class="card-title">{{servicio.nombre}}</h5>
                                 <p class="card-text">
-                                    Some quick example text to build on the card title and make up the bulk of the card's content.
+                                    {{servicio.descripcion}}
                                 </p>
-                                <a href="#!" class="btn btn-primary">Button</a>
+                                <p class="card-text">
+                                    Precio: $ {{servicio.precio}}
+                                </p>
+                                <button type="button" class="btn btn-primary aling-center " (click)="agregar(servicio)">Agregar &#xe081;</button>
+                                <button type="button" class="btn btn-danger" (click)="quitar(servicio)">Quitar &#xe082;</button>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-lg-4 d-none d-lg-block">
-                        <div class="card">
-                            <img src="https://mdbootstrap.com/img/new/standard/nature/182.jpg" class="card-img-top" alt="..." />
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">
-                                    Some quick example text to build on the card title and make up the bulk of the card's content.
-                                </p>
-                                <a href="#!" class="btn btn-primary">Button</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 d-none d-lg-block">
-                        <div class="card">
-                            <img src="https://mdbootstrap.com/img/new/standard/nature/183.jpg" class="card-img-top" alt="..." />
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">
-                                    Some quick example text to build on the card title and make up the bulk of the card's content.
-                                </p>
-                                <a href="#!" class="btn btn-primary">Button</a>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
