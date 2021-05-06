@@ -6,3 +6,11 @@
 .quitar {
     display: none;
 }
+
+.carousel {
+    margin-bottom: 10%;
+}
+
+.bloqueado {
+    display: none;
+}

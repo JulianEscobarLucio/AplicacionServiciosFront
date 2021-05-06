@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Sevicio } from '../modelos/sevicio';
+import { ServicioService } from '../servicios/servicio.service';
 
 @Component({
   selector: 'app-lista-de-productos',
@@ -8,57 +9,36 @@ import { Sevicio } from '../modelos/sevicio';
 })
 export class ListaDeProductosComponent implements OnInit {
 
-  serviciosAquiridos: Sevicio[] = [];
+  serviciosAquiridos: string[] = [];
 
-  servicios: Sevicio[] = [
-    {
-      id: '1',
-      nombre: 'Lavado de muebles',
-      descripcion: 'Este es el servicio de lavado de muebles',
-      imagen: 'https://mdbootstrap.com/img/new/standard/nature/181.jpg',
-      precio: 5000
-    },
-    {
-      id: '2',
-      nombre: 'Lavado de alfombra',
-      descripcion: 'Este es el servicio de lavado de alfombra',
-      imagen: 'https://mdbootstrap.com/img/new/standard/nature/182.jpg',
-      precio: 7000
-    }, {
-      id: '3',
-      nombre: 'Lavado de colchon',
-      descripcion: 'Este es el servicio de lavado de colchon',
-      imagen: 'https://mdbootstrap.com/img/new/standard/nature/183.jpg',
-      precio: 12000
-    }
-    , {
-      id: '4',
-      nombre: 'Desinfección',
-      descripcion: 'Este es el servicio de desinfección',
-      imagen: 'https://mdbootstrap.com/img/new/standard/nature/183.jpg',
-      precio: 8000
-    }
-  ];
+  servicios: Sevicio[] = [];
 
-  constructor() { }
+  constructor(private servicioService: ServicioService) { }
 
   ngOnInit() {
+    this.servicios = this.servicioService.consultarSevicios();
   }
 
 
-  agregar(id: Sevicio): void {
-    this.serviciosAquiridos.push(id);
-    console.log(id);
-    console.log(this.serviciosAquiridos);
+  agregar(servicio: Sevicio): void {
+    this.serviciosAquiridos.push(servicio.id);
+    this.servicioService.modificarCantidad(this.serviciosAquiridos.length);
+    console.log(servicio);
+    document.cookie = 'serviciosAquiridos = ' + this.serviciosAquiridos;
+    document.cookie = 'cantidadServicios = ' + this.serviciosAquiridos.length;
+
+    const serviciosLista = document.cookie.replace(/(?:(?:^|.*;\s*)serviciosAquiridos\s*\=\s*([^;]*).*$)|^.*$/, "$1").split(',');
+    console.log(serviciosLista);
   }
 
   quitar(servicio: Sevicio): void {
-    const i = this.serviciosAquiridos.indexOf( servicio );
+    const i = this.serviciosAquiridos.indexOf( servicio.id );
 
     if ( i !== -1 ) {
       this.serviciosAquiridos.splice( i, 1 );
     }
-
+    this.servicioService.modificarCantidad(this.serviciosAquiridos.length);
+    document.cookie = 'serviciosAquiridos = ' + this.serviciosAquiridos;
     console.log(this.serviciosAquiridos);
   }
 

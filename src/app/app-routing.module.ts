@@ -6,6 +6,7 @@ import { RegistroDeUsuarioComponent } from './registro-de-usuario/registro-de-us
 import { MisionComponent } from './mision/mision.component';
 import { VisionComponent } from './vision/vision.component';
 import { PrincipiosComponent } from './principios/principios.component';
+import { VerCompraComponent } from './ver-compra/ver-compra.component';
 
 
 const routes: Routes = [
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'registrarse', component: RegistroDeUsuarioComponent },
   { path: 'mision', component: MisionComponent },
   { path: 'vision', component: VisionComponent },
-  { path: 'principios', component: PrincipiosComponent }
+  { path: 'principios', component: PrincipiosComponent },
+  { path: 'detalle-compra', component: VerCompraComponent },
 
 ];
 

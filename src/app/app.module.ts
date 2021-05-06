@@ -21,6 +21,8 @@ import { ModalComponent } from './modal/modal.component';
 import { MisionComponent } from './mision/mision.component';
 import { VisionComponent } from './vision/vision.component';
 import { PrincipiosComponent } from './principios/principios.component';
+import { DetalleCompraComponent } from './servicios/detalle-compra/detalle-compra.component';
+import { VerCompraComponent } from './ver-compra/ver-compra.component';
 // import { NgxSpinnerModule } from 'ngx-spinner';
 
 
@@ -41,7 +43,9 @@ import { PrincipiosComponent } from './principios/principios.component';
     ModalComponent,
     MisionComponent,
     VisionComponent,
-    PrincipiosComponent
+    PrincipiosComponent,
+    DetalleCompraComponent,
+    VerCompraComponent
     // ,NgxSpinnerModule
   ],
   imports: [
