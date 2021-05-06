@@ -3,5 +3,5 @@ export class Sevicio {
     nombre: string;
     descripcion: string;
     imagen: string;
-    precio: number;
+    precio: string;
 }
