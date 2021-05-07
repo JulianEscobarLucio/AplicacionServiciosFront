@@ -4,35 +4,94 @@
 </div>
 <br/>
 <br/>
-<div id="carouselMultiItemExample" class="carousel slide carousel-dark text-center" data-mdb-ride="carousel">
-    <!-- Inner -->
-    <div class="carousel-inner py-8">
-        <!-- Single item -->
-        <div class="carousel-item active">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-3" *ngFor="let servicio of servicios">
-                        <div class="card">
-                            <img src="{{servicio.imagen}}" class="card-img-top" alt="..." />
-                            <div class="card-body">
-                                <h5 class="card-title">{{servicio.nombre}}</h5>
-                                <p class="card-text">
-                                    {{servicio.descripcion}}
-                                </p>
-                                <p class="card-text">
-                                    Precio: {{servicio.precio}}
-                                </p>
-                                <div [ngClass]="{'bloqueado': this.serviciosAquiridos.includes(servicio.id)}"><button type="button" id="agregar{{servicio.id}}" class="btn btn-primary aling-center" (click)="agregar(servicio)">Agregar +</button></div>
-                                <div [ngClass]="{'bloqueado': !this.serviciosAquiridos.includes(servicio.id)}"><button type="button" id="quitar{{servicio.id}}" class="btn btn-danger" (click)="quitar(servicio)">Quitar -</button></div>
+<div class="row">
+    <div class="col"></div>
+    <div id="carouselMultiItemExample" class="carousel slide carousel-dark text-center col-6" data-mdb-ride="carousel">
+        <!-- Inner -->
+        <div class="carousel-inner py-8">
+            <!-- Single item -->
+            <div class="carousel-item active">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3" *ngFor="let servicio of servicios">
+                            <div class="card">
+                                <img src="{{servicio.imagen}}" class="card-img-top" alt="..." />
+                                <div class="card-body">
+                                    <h5 class="card-title">{{servicio.nombre}}</h5>
+                                    <p class="card-text">
+                                        {{servicio.descripcion}}
+                                    </p>
+                                    <p class="card-text">
+                                        Precio: $ {{servicio.precio}}
+                                    </p>
+                                    <div [ngClass]="{'bloqueado': this.serviciosAquiridos.includes(servicio)}"><button type="button" id="agregar{{servicio.id}}" class="btn btn-primary aling-center" (click)="agregar(servicio)">Agregar +</button></div>
+                                    <div [ngClass]="{'bloqueado': !this.serviciosAquiridos.includes(servicio)}"><button type="button" id="quitar{{servicio.id}}" class="btn btn-danger" (click)="quitar(servicio)">Quitar -</button></div>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
+                    </div>
                 </div>
+            </div>
+
+        </div>
+
+        <!-- Inner -->
+    </div>
+
+    <div class="col">
+
+        <div class="form-servicios-solicitados card">
+            <div>
+                <h4 class="titulo" id="modal-basic-title">Servicios Solicitados</h4>
+            </div>
+            <div class="body">
+                <ul>
+                    <li *ngFor="let servicio of serviciosAquiridos">{{servicio.nombre}}..........$ {{servicio.precio}}</li>
+                </ul>
+                <div class="total"><span>Total.... $ {{total}}</span></div>
+            </div>
+            <div class="solictar">
+                <button class="btn btn-warning aling-center" (click)="solicitarServicio()">Solicitar servicios<img src="https://img.icons8.com/ios/30/ffffff/add-shopping-cart--v1.png" /><span>({{serviciosAquiridos.length}})</span></button>
             </div>
         </div>
 
     </div>
-    <!-- Inner -->
-</div>
-<!-- Carousel wrapper -->
+
+    <ng-template #content let-c="close" let-d="dismiss">
+        <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">Llenar datos para solicitar servicio</h4>
+            <button type="button" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="form-group row">
+                    <label for="nombreCompleto" class="col-sm-10 col-form-label">Nombre Completo*</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="nombre" class="form-control" id="nombreCompleto" [(ngModel)]="compra.nombreCliente" placeholder="Nombre Completo">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="direccion" class="col-sm-10 col-form-label">Dirección*</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="direccion" class="form-control" id="direccion" [(ngModel)]="compra.direccin" placeholder="Dirección">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="telefono" class="col-sm-10 col-form-label">Teléfono*</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="telefono" pattern="^[0-9]" class="form-control" id="telefono" [(ngModel)]="compra.telefono" placeholder="Teléfono">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-12 btn-terminar">
+                        <button class="btn btn-primary" (click)="terminar()">Terminar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </ng-template>
+
+    <!-- Carousel wrapper -->

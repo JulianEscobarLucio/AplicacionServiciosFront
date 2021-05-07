@@ -7,6 +7,7 @@ import { MisionComponent } from './mision/mision.component';
 import { VisionComponent } from './vision/vision.component';
 import { PrincipiosComponent } from './principios/principios.component';
 import { VerCompraComponent } from './ver-compra/ver-compra.component';
+import { SolicitarServicioComponent } from './solicitar-servicio/solicitar-servicio.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'vision', component: VisionComponent },
   { path: 'principios', component: PrincipiosComponent },
   { path: 'detalle-compra', component: VerCompraComponent },
+  { path: 'servicios', component: SolicitarServicioComponent }
 
 ];
 

@@ -19,27 +19,34 @@ export class ServicioService {
       nombre: 'Lavado de muebles',
       descripcion: 'Este es el servicio de lavado de muebles',
       imagen: 'https://mdbootstrap.com/img/new/standard/nature/181.jpg',
-      precio: '$ 5000'
+      precio: 5000
     },
     {
       id: '2',
       nombre: 'Lavado de alfombra',
       descripcion: 'Este es el servicio de lavado de alfombra',
       imagen: 'https://mdbootstrap.com/img/new/standard/nature/182.jpg',
-      precio: '$ 7.000'
+      precio: 7000
     }, {
       id: '3',
       nombre: 'Lavado de colchon',
       descripcion: 'Este es el servicio de lavado de colchon',
       imagen: 'https://mdbootstrap.com/img/new/standard/nature/183.jpg',
-      precio: '$ 8.000'
+      precio: 8000
     }
     , {
       id: '4',
-      nombre: 'Desinfección',
-      descripcion: 'Este es el servicio de desinfección',
+      nombre: 'Limpieza de pasisería',
+      descripcion: 'Este es el servicio de limpieza de tapicería',
       imagen: 'https://mdbootstrap.com/img/new/standard/nature/183.jpg',
-      precio: '$ 12.000'
+      precio: 9000
+    }
+    , {
+      id: '5',
+      nombre: 'Limpieza de peluches',
+      descripcion: 'Este es el servicio de lavado de peluches',
+      imagen: 'https://mdbootstrap.com/img/new/standard/nature/183.jpg',
+      precio: 12000
     }
   ];
 

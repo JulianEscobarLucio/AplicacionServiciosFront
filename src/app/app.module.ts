@@ -23,6 +23,8 @@ import { VisionComponent } from './vision/vision.component';
 import { PrincipiosComponent } from './principios/principios.component';
 import { DetalleCompraComponent } from './servicios/detalle-compra/detalle-compra.component';
 import { VerCompraComponent } from './ver-compra/ver-compra.component';
+import { QuienesSomosComponent } from './quienes-somos/quienes-somos.component';
+import { SolicitarServicioComponent } from './solicitar-servicio/solicitar-servicio.component';
 // import { NgxSpinnerModule } from 'ngx-spinner';
 
 
@@ -45,7 +47,9 @@ import { VerCompraComponent } from './ver-compra/ver-compra.component';
     VisionComponent,
     PrincipiosComponent,
     DetalleCompraComponent,
-    VerCompraComponent
+    VerCompraComponent,
+    QuienesSomosComponent,
+    SolicitarServicioComponent
     // ,NgxSpinnerModule
   ],
   imports: [

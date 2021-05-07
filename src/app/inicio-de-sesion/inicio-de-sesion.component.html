@@ -10,15 +10,21 @@
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="form-group col-md-12">
+                            <div class="col-md-3"></div>
+                            <div class="form-group col-md-6">
                                 <input [(ngModel)]="usuario.usuario" type="text" class="form-control" id="usuario" placeholder="Usuario" name="usuario" (keyup)="cambioDato()">
                                 <span class="badge badge-danger" *ngIf="mensajeUsuario">{{mensajeUsuario}}</span>
                             </div>
+                            <div class="col-md-3"></div>
                         </div>
                         <div class="form-row">
-                            <div class="form-group col-md-12">
+                            <div class="col-md-3"></div>
+
+                            <div class="form-group col-md-6">
                                 <input [(ngModel)]="usuario.constrasena" type="password" class="form-control" id="contrasena" placeholder="Contraseña" name="constrasena" (keyup)="cambioDato()">
                                 <span class="badge badge-danger" *ngIf="mensajeContrasena">{{mensajeContrasena}}</span> </div>
+                            <div class="col-md-3"></div>
+
                         </div>
                         <div class="form-row">
                             <div class="col-md-12 login-from-row">

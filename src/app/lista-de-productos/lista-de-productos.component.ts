@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Sevicio } from '../modelos/sevicio';
 import { ServicioService } from '../servicios/servicio.service';
+import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Compra } from '../modelos/compra';
+
 
 @Component({
   selector: 'app-lista-de-productos',
@@ -9,11 +12,17 @@ import { ServicioService } from '../servicios/servicio.service';
 })
 export class ListaDeProductosComponent implements OnInit {
 
-  serviciosAquiridos: string[] = [];
-
+  serviciosAquiridos: Sevicio[] = [];
   servicios: Sevicio[] = [];
+  @ViewChild('content', {static: false}) contenidoDelModal;
+  total = 0;
+  compra = new Compra();
 
-  constructor(private servicioService: ServicioService) { }
+
+  constructor(private servicioService: ServicioService, config: NgbModalConfig, private modalService: NgbModal) {
+      config.backdrop = 'static';
+      config.keyboard = false;
+}
 
   ngOnInit() {
     this.servicios = this.servicioService.consultarSevicios();
@@ -21,7 +30,7 @@ export class ListaDeProductosComponent implements OnInit {
 
 
   agregar(servicio: Sevicio): void {
-    this.serviciosAquiridos.push(servicio.id);
+    this.serviciosAquiridos.push(servicio);
     this.servicioService.modificarCantidad(this.serviciosAquiridos.length);
     console.log(servicio);
     document.cookie = 'serviciosAquiridos = ' + this.serviciosAquiridos;
@@ -29,10 +38,14 @@ export class ListaDeProductosComponent implements OnInit {
 
     const serviciosLista = document.cookie.replace(/(?:(?:^|.*;\s*)serviciosAquiridos\s*\=\s*([^;]*).*$)|^.*$/, "$1").split(',');
     console.log(serviciosLista);
+    this.total = 0;
+    this.serviciosAquiridos.forEach(item => {
+      this.total = this.total + item.precio;
+    });
   }
 
   quitar(servicio: Sevicio): void {
-    const i = this.serviciosAquiridos.indexOf( servicio.id );
+    const i = this.serviciosAquiridos.indexOf( servicio);
 
     if ( i !== -1 ) {
       this.serviciosAquiridos.splice( i, 1 );
@@ -40,6 +53,24 @@ export class ListaDeProductosComponent implements OnInit {
     this.servicioService.modificarCantidad(this.serviciosAquiridos.length);
     document.cookie = 'serviciosAquiridos = ' + this.serviciosAquiridos;
     console.log(this.serviciosAquiridos);
+    this.total = 0;
+    this.serviciosAquiridos.forEach(item => {
+      this.total = this.total + item.precio;
+    });
   }
+
+  solicitarServicio() {
+    this.total = 0;
+    this.serviciosAquiridos.forEach(servicio => {
+      this.total = this.total + servicio.precio;
+    });
+    this.modalService.open(this.contenidoDelModal);
+  }
+
+
+  terminar() {
+      this.compra.servicios = this.serviciosAquiridos;
+      console.log(this.compra);
+   }
 
 }
