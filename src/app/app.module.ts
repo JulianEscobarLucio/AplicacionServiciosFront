@@ -25,6 +25,8 @@ import { DetalleCompraComponent } from './servicios/detalle-compra/detalle-compr
 import { VerCompraComponent } from './ver-compra/ver-compra.component';
 import { QuienesSomosComponent } from './quienes-somos/quienes-somos.component';
 import { SolicitarServicioComponent } from './solicitar-servicio/solicitar-servicio.component';
+import { HomePrivadoComponent } from './home-privado/home-privado.component';
+import { NavegadorPrivadoComponent } from './navegador-privado/navegador-privado.component';
 // import { NgxSpinnerModule } from 'ngx-spinner';
 
 
@@ -49,7 +51,9 @@ import { SolicitarServicioComponent } from './solicitar-servicio/solicitar-servi
     DetalleCompraComponent,
     VerCompraComponent,
     QuienesSomosComponent,
-    SolicitarServicioComponent
+    SolicitarServicioComponent,
+    HomePrivadoComponent,
+    NavegadorPrivadoComponent
     // ,NgxSpinnerModule
   ],
   imports: [

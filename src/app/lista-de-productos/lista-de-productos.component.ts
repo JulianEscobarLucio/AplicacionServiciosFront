@@ -17,6 +17,10 @@ export class ListaDeProductosComponent implements OnInit {
   @ViewChild('content', {static: false}) contenidoDelModal;
   total = 0;
   compra = new Compra();
+  mensajeNombre = '';
+  mensajeTelefono = '';
+  mensajeDireccion = '';
+  mensajeboton = '';
 
 
   constructor(private servicioService: ServicioService, config: NgbModalConfig, private modalService: NgbModal) {
@@ -69,8 +73,37 @@ export class ListaDeProductosComponent implements OnInit {
 
 
   terminar() {
+      if (this.validarCampos()) {
+        return;
+      }
       this.compra.servicios = this.serviciosAquiridos;
       console.log(this.compra);
+   }
+
+   validarCampos(): boolean {
+     if (this.compra.nombreCliente === undefined || this.compra.nombreCliente === '') {
+      this.mensajeNombre = 'El campo nombre completo es requerido.';
+      this.mensajeboton = 'Faltan datos por diligencias.';
+      return true;
+     } else if (this.compra.direccion === undefined || this.compra.direccion === '') {
+      this.mensajeDireccion = 'El campo dirección es requerido.';
+      this.mensajeboton = 'Faltan datos por diligencias.';
+      return true;
+    } else if (this.compra.telefono === undefined || this.compra.telefono === '') {
+      this.mensajeTelefono = 'El campo teléfono es requerido.';
+      this.mensajeboton = 'Faltan datos por diligencias.';
+      return true;
+    } else {
+      return false;
+    }
+   }
+
+
+   limpiarMensajes(): void {
+    this.mensajeNombre = '';
+    this.mensajeTelefono = '';
+    this.mensajeDireccion = '';
+    this.mensajeboton = '';
    }
 
 }

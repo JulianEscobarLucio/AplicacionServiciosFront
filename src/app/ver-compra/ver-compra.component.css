@@ -13,3 +13,30 @@
     margin-right: 10%;
     overflow: hidden;
 }
+
+.servicios-solicitados {
+    margin-top: 7%;
+    margin-bottom: 22%;
+}
+
+.titulo {
+    text-align: center;
+    margin-bottom: 5%;
+    font-size: 2.5rem;
+}
+
+.modal-dialog {
+    max-width: 50% !important;
+}
+
+.total {
+    text-align: center;
+    margin-bottom: 10%;
+    font-family: fantasy;
+    font-size: 2.5rem;
+}
+
+.form-servicios-solicitados {
+    margin-top: 7%;
+    font-size: 150%;
+}

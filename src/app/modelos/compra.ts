@@ -1,9 +1,10 @@
 import { Sevicio } from './sevicio';
 
 export class Compra {
-   servicios: Sevicio[];
+   id: string;
+   servicios?: Sevicio[];
    nombreCliente: string;
-   direccin: string;
+   direccion: string;
    telefono: string;
    estado: string;
 }

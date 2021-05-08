@@ -43,6 +43,7 @@ export class RegistroDeUsuarioComponent implements OnInit {
     this.paises = this.listarPais();
     this.municipios = this.listarMunicipios();
   }
+  
   open(content) {
     this.modalService.open(content);
   }

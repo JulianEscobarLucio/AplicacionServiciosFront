@@ -8,7 +8,7 @@ import { ServicioService } from '../servicios/servicio.service';
   styleUrls: ['./navegador-publico.component.css']
 })
 export class NavegadorPublicoComponent implements OnInit {
-  
+
   cantidadDeServicios$: Observable<number>;
   cantidadDeServicios = 0;
 

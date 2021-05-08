@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Usuario } from '../modelos/usuario';
 import { ServicioUsuarioService } from '../servicios/servicio-usuario.service';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import {Router} from '@angular/router';
+
 // import { NgxSpinnerService } from "ngx-spinner";
 @Component({
   selector: 'app-inicio-de-sesion',
@@ -19,7 +21,7 @@ export class InicioDeSesionComponent implements OnInit {
   mensaje = '';
 
   constructor(private servicioUsuario: ServicioUsuarioService,
-    config: NgbModalConfig, private modalService: NgbModal) {
+    config: NgbModalConfig, private modalService: NgbModal, private router: Router) {
     config.backdrop = 'static';
     config.keyboard = false;
   }
@@ -28,7 +30,8 @@ export class InicioDeSesionComponent implements OnInit {
   }
 
   iniciarSesion() {
-    this.servicioUsuario.login(this.usuario)
+    this.router.navigate(['ver-solicitudes']);
+ /*   this.servicioUsuario.login(this.usuario)
     .subscribe(respuesta => {
       this.mensaje = respuesta;
       this.modalService.open(this.contenidoDelModal);
@@ -36,7 +39,7 @@ export class InicioDeSesionComponent implements OnInit {
       console.log(err);
       this.mensaje = 'Ocurrio un error tratando de ingresar';
       this.modalService.open(this.contenidoDelModal);
-    });
+    });*/
   }
 
   validarDatos(): boolean {

@@ -18,8 +18,8 @@ const routes: Routes = [
   { path: 'mision', component: MisionComponent },
   { path: 'vision', component: VisionComponent },
   { path: 'principios', component: PrincipiosComponent },
-  { path: 'detalle-compra', component: VerCompraComponent },
-  { path: 'servicios', component: SolicitarServicioComponent }
+  { path: 'servicios', component: SolicitarServicioComponent },
+  { path: 'ver-solicitudes', component: VerCompraComponent },
 
 ];
 
