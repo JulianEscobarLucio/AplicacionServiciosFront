@@ -4,6 +4,8 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Usuario } from '../modelos/usuario';
 import { servicePath } from '../costantes';
+import { User } from '../modelos/modelos';
+import { RespuestaDTO } from '../modelos/RespuestaDTO';
 
 
 const httpOptions = {
@@ -21,7 +23,7 @@ export class ServicioUsuarioService {
         return this.http.post<Usuario>(this.usuarioUrl + 'agregar', usuario, httpOptions);
   }
 
-  login(usuario: Usuario): Observable<string> {
-    return this.http.get<string>(this.usuarioUrl + 'login' + '/' + usuario.usuario + '/' + usuario.constrasena, httpOptions);
+  login(usuario: User): Observable<RespuestaDTO> {
+    return this.http.get<RespuestaDTO>(this.usuarioUrl + 'login' + '/' + usuario.nombre + '/' + usuario.contrasena, httpOptions);
   }
 }

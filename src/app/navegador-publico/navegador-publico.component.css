@@ -1,3 +1,35 @@
+.img-menu {
+    width: 50%;
+    margin-left: 24%;
+}
+
+.texto-error {
+    color: red;
+}
+
+.contenedor-inicia-sesion {
+    cursor: pointer;
+}
+
+.img-persona {
+    width: 30px;
+    height: 31px;
+}
+
+.inici-sesion {
+    color: #fff;
+    font-family: Helvetica, Arial, Verdana, sans-serif;
+}
+
+.login {
+    background-color: #5e81e0;
+    padding-top: 0.5%;
+}
+
+.menu {
+    background-color: #5e81e0 !important;
+}
+
 .container {
     max-width: 1140px;
 }
@@ -13,9 +45,6 @@
 
 #cssmenu {
     line-height: 1;
-    border-radius: 5px 5px 0 0;
-    -moz-border-radius: 5px 5px 0 0;
-    -webkit-border-radius: 5px 5px 0 0;
     background-color: #5e81e0;
     border-bottom: 2px solid #5e81e0;
     width: auto;
@@ -89,20 +118,16 @@
 #cssmenu>ul>li:first-child>a {
     border-radius: 5px 0 0 0;
     -moz-border-radius: 5px 0 0 0;
-    -webkit-border-radius: 5px 0 0 0;
 }
 
 #cssmenu.align-right>ul>li:first-child>a,
 #cssmenu.align-center>ul>li:first-child>a {
     border-radius: 0;
     -moz-border-radius: 0;
-    -webkit-border-radius: 0;
 }
 
 #cssmenu.align-right>ul>li:last-child>a {
     border-radius: 0 5px 0 0;
-    -moz-border-radius: 0 5px 0 0;
-    -webkit-border-radius: 0 5px 0 0;
 }
 
 #cssmenu>ul>li:hover>a {

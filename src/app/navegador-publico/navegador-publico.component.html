@@ -1,17 +1,78 @@
-<div class="header">
-    <div id='cssmenu'>
-        <ul>
-            <li><a href='/home-publico'><span>Inicio</span></a></li>
-            <li class='active has-sub'><a href='#'><span>Nosotros</span></a>
-                <ul>
-                    <li class='has-sub'><a href='/mision'><span>Misión</span></a></li>
-                    <li class='has-sub'><a href='/vision'><span>Visión</span></a></li>
-                    <li class='has-sub'><a href='/principios'><span>Principios y valores </span></a></li>
-                </ul>
-            </li>
-            <li class='active has-sub'><a href='/servicios'><span>Servicios</span></a>
-            </li>
-            <li class='last'><a href='/inisiar-sesion'><span>Iniciar sesión</span></a></li>
-        </ul>
+<div class="row menu">
+    <div class="col-1">
+        <img class="img-menu " src="../../assets/images/logo.PNG " />
     </div>
-</div>
+    <div class="col-2.1 ">
+        <div class="header ">
+            <div id='cssmenu'>
+                <ul>
+                    <li><a href='/home-publico'><span>Inicio</span></a></li>
+                    <li class='active has-sub'><a href='#'><span>Nosotros</span></a>
+                        <ul>
+                            <li class='has-sub'><a href='/mision'><span>Misión</span></a></li>
+                            <li class='has-sub'><a href='/vision'><span>Visión</span></a></li>
+                            <li class='has-sub'><a href='/principios'><span>Principios y valores </span></a></li>
+                        </ul>
+                    </li>
+                    <li class='active has-sub'><a href='/servicios'><span>Servicios</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="login col-4 ">
+        <div class="contenedor-inicia-sesion " (click)="solicitarInicio() ">
+            <img class="img-persona " src="../../assets/images/persona.png "><img>
+            <span class="inici-sesion "> Inicia sesión</span>
+        </div>
+        <ng-template #content let-c="close " let-d="dismiss ">
+            <div class="modal-header ">
+                <h4 class="modal-title " id="modal-basic-title ">Iniciar sesión</h4>
+                <button type="button " id="cerrar " aria-label="Close " (click)="d( 'Cross click') ">
+                                            <span aria-hidden="true ">&times;</span>
+                                        </button>
+            </div>
+            <div class="modal-body ">
+                <div class="row text-center login-page ">
+                    <div class="col-md-12 login-form ">
+                        <form>
+                            <div class="row text-center login-page ">
+                                <div class="col-md-12 login-form ">
+                                    <div class="form-row ">
+                                        <div class="form-group col-md-12 imglogin ">
+                                            <img src="../../assets/images/logo.PNG " />
+                                        </div>
+                                    </div>
+                                    <div class="form-row ">
+                                        <div class="col-md-3 "></div>
+                                        <div class="form-group col-md-6 ">
+                                            <input [(ngModel)]="user.nombre " type="text " class="form-control " id="usuario " placeholder="Usuario " name="usuario " (keyup)="cambioDato() ">
+                                            <span class="texto-error " *ngIf="mensajeNombre ">{{mensajeNombre}}</span>
+                                        </div>
+                                        <div class="col-md-3 "></div>
+                                    </div>
+                                    <div class="form-row ">
+                                        <div class="col-md-3 "></div>
+
+                                        <div class="form-group col-md-6 ">
+                                            <input [(ngModel)]="user.contrasena " type="password " class="form-control " id="contrasena " placeholder="Contraseña " name="constrasena " (keyup)="cambioDato() ">
+                                            <span class="texto-error " *ngIf="mensajeContrasena ">{{mensajeContrasena}}</span> </div>
+                                        <div class="col-md-3 "></div>
+
+                                    </div>
+                                    <div class="form-row ">
+                                        <div class="col-md-12 login-from-row ">
+                                            <button class="btn btn-primary " (click)="iniciarSesion() ">Entrar</button>
+                                            <br>
+                                            <span class="texto-error " *ngIf="mensajeboton ">{{mensajeboton}}</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </div>
