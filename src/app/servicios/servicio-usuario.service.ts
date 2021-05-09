@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Usuario } from '../modelos/usuario';
+import { servicePath } from '../costantes';
 
 
 const httpOptions = {
@@ -12,7 +13,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class ServicioUsuarioService {
-  private usuarioUrl = 'http://localhost:8080/ms-servicios/api/usuario/';  // URL to web api
+  private usuarioUrl =  servicePath + 'api/usuario/';  // URL to web api
 
   constructor(private http: HttpClient) { }
 
