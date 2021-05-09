@@ -25,6 +25,8 @@ export class ListaDeProductosComponent implements OnInit {
   mensajeExitoso1 = '';
   mensajeExitoso2 = '';
   mensajeFallido = '';
+  transaccionTerminada = true;
+
 
 
   constructor(private servicioService: ServicioService, private compraService: CompraService,
@@ -51,6 +53,8 @@ export class ListaDeProductosComponent implements OnInit {
     this.serviciosAquiridos.forEach(item => {
       this.total = this.total + item.precio;
     });
+
+    this.transaccionTerminada = false;
   }
 
   quitar(servicio: Servicio): void {
@@ -90,6 +94,7 @@ export class ListaDeProductosComponent implements OnInit {
           console.log(response.mensaje);
           this.mensajeExitoso1 = 'La solicitud finalizó de manera exitosa,   ';
           this.mensajeExitoso2 = ' nos estaremos comunicando contigo en el transcurso del día';
+          this.transaccionTerminada = true;
         },
         error => {
           this.mensajeFallido = 'Ocurrio un error, intentelo de nuevo';

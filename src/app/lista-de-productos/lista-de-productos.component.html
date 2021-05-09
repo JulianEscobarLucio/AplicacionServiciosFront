@@ -14,17 +14,14 @@
                     <div class="row">
                         <div class="col-lg-3" *ngFor="let servicio of servicios">
                             <div class="card">
-                                <img src="{{servicio.imagen}}" class="card-img-top" alt="..." />
+                                <img src="{{servicio.imagen}}" class="card-img-top card-imagen" alt="..." />
                                 <div class="card-body">
                                     <h5 class="card-title">{{servicio.nombre}}</h5>
                                     <p class="card-text">
                                         {{servicio.descripcion}}
                                     </p>
-                                    <p class="card-text">
-                                        Precio: $ {{servicio.precio}}
-                                    </p>
-                                    <div [ngClass]="{'bloqueado': this.serviciosAquiridos.includes(servicio)}"><button type="button" id="agregar{{servicio.id}}" class="btn btn-primary aling-center" (click)="agregar(servicio)">Agregar +</button></div>
-                                    <div [ngClass]="{'bloqueado': !this.serviciosAquiridos.includes(servicio)}"><button type="button" id="quitar{{servicio.id}}" class="btn btn-danger" (click)="quitar(servicio)">Quitar -</button></div>
+                                    <div [ngClass]="{'bloqueado': this.serviciosAquiridos.includes(servicio)}"><button type="button" id="agregar{{servicio.idServicio}}" class="btn btn-primary aling-center" (click)="agregar(servicio)">Agregar +</button></div>
+                                    <div [ngClass]="{'bloqueado': !this.serviciosAquiridos.includes(servicio)}"><button type="button" id="quitar{{servicio.idServicio}}" class="btn btn-danger" (click)="quitar(servicio)">Quitar -</button></div>
                                 </div>
                             </div>
                         </div>
@@ -46,9 +43,8 @@
             </div>
             <div class="body">
                 <ul>
-                    <li *ngFor="let servicio of serviciosAquiridos">{{servicio.nombre}}..........$ {{servicio.precio}}</li>
+                    <li *ngFor="let servicio of serviciosAquiridos">{{servicio.nombre}}</li>
                 </ul>
-                <div class="total"><span>Total.... $ {{total}}</span></div>
             </div>
             <div class="solictar">
                 <button class="btn btn-warning aling-center" (click)="solicitarServicio()">Solicitar servicios<img src="https://img.icons8.com/ios/30/ffffff/add-shopping-cart--v1.png" /><span>({{serviciosAquiridos.length}})</span></button>

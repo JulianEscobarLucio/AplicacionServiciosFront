@@ -11,20 +11,20 @@ import {NgbCarouselConfig} from '@ng-bootstrap/ng-bootstrap';
 export class SliderComponent implements OnInit {
 
   peliculas: any[] = [
-    {name: 'Imagen 1',
-    img: './assets/images/banner1.jpg',
-    desc: 'is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.'
+    {name: '',
+    img: './assets/images/banner1.PNG',
+    desc: ''
      },
     {
       name: 'Imagen 2',
-      img: './assets/images/banner2.jpg',
-      desc: 'is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.'
+      img: './assets/images/banner2.PNG',
+      desc: ''
 
     },
     {
       name: 'Imagen 3',
-      img: './assets/images/banner2.jpg',
-      desc: 'is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.'
+      img: './assets/images/banner3.PNG',
+      desc: ''
 
     }
   ];

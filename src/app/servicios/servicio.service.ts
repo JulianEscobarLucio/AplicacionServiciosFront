@@ -18,36 +18,36 @@ export class ServicioService {
       idServicio: '1',
       nombre: 'Lavado de muebles',
       descripcion: 'Este es el servicio de lavado de muebles',
-      imagen: 'https://mdbootstrap.com/img/new/standard/nature/181.jpg',
+      imagen: '../../assets/images/limpieza-de-mueble.jpg',
       precio: 5000
     },
     {
       idServicio: '2',
       nombre: 'Lavado de alfombra',
       descripcion: 'Este es el servicio de lavado de alfombra',
-      imagen: 'https://mdbootstrap.com/img/new/standard/nature/182.jpg',
+      imagen: '../../assets/images/lavado-de-alfombra.jpg',
       precio: 7000
     }, {
       idServicio: '3',
       nombre: 'Lavado de colchon',
       descripcion: 'Este es el servicio de lavado de colchon',
-      imagen: 'https://mdbootstrap.com/img/new/standard/nature/183.jpg',
+      imagen: '../../assets/images/limpieza-de-colchon.jpg',
       precio: 8000
     }
     , {
       idServicio: '4',
-      nombre: 'Limpieza de pasisería',
+      nombre: 'Limpieza de tapicería',
       descripcion: 'Este es el servicio de limpieza de tapicería',
-      imagen: 'https://mdbootstrap.com/img/new/standard/nature/183.jpg',
+      imagen: '../../assets/images/limpieza-de-tapiceria.jpg',
       precio: 9000
     }
     , {
       idServicio: '5',
       nombre: 'Limpieza de peluches',
       descripcion: 'Este es el servicio de lavado de peluches',
-      imagen: 'https://mdbootstrap.com/img/new/standard/nature/183.jpg',
+      imagen: '../../assets/images/lavado-de-peluche.jpg',
       precio: 12000
-    }    
+    }
   ];
 
   constructor() { }
