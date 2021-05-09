@@ -1,8 +1,8 @@
-import { Sevicio } from './sevicio';
+import { Servicio } from './sevicio';
 
 export class Compra {
    id: string;
-   servicios?: Sevicio[];
+   servicios?: Servicio[];
    nombreCliente: string;
    direccion: string;
    telefono: string;

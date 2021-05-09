@@ -24,8 +24,19 @@ export class VerCompraComponent implements OnInit {
 }
 
   ngOnInit() {
-   this.compras = this.compraService.consultarCompras();
-   console.log(this.compras);
+
+    this.compraService.consultarCompras()
+      .subscribe(compras => {
+        this.compras = compras;
+        console.log(this.compras);
+
+  /*      this.mensajeServicioGuardar = 'El usuario fue guardado';
+        this.modalService.open(this.contenidoDelModal);*/
+      }, err => {
+        console.log(err);
+   /*     this.mensajeServicioGuardar = 'Ocurrio un error guardando el usuario, intente nuevamente';
+        this.modalService.open(this.contenidoDelModal);*/
+      });
   }
 
   verDetalleSolicitud(compra: Compra): void {

@@ -42,7 +42,7 @@
 
         <div class="form-servicios-solicitados card">
             <div>
-                <h4 class="titulo" id="modal-basic-title">Servicios Solicitados</h4>
+                <h4 class="titulo" id="modal-basic-title">Servicios solicitados</h4>
             </div>
             <div class="body">
                 <ul>
@@ -89,8 +89,11 @@
                 </div>
                 <div class="form-group row">
                     <div class="col-sm-12 btn-terminar">
-                        <button class="btn btn-primary" (click)="terminar()">Terminar</button>
+                        <button class="btn btn-primary" (click)="terminarSolicitud()">Terminar</button>
                         <br/>
+                        <span class="badge badge-success" *ngIf="mensajeExitoso1">{{mensajeExitoso1}}</span>
+                        <span class="badge badge-success" *ngIf="mensajeExitoso2">{{mensajeExitoso2}}</span>
+                        <span class="badge badge-danger" *ngIf="mensajeFallido">{{mensajeFallido}}</span>
                     </div>
                 </div>
             </form>

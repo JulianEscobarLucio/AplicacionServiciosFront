@@ -1,6 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Compra } from '../modelos/compra';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, of } from 'rxjs';
+import { servicePath } from '../costantes';
+import { RespuestaDTO } from '../modelos/RespuestaDTO';
 
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 @Injectable({
   providedIn: 'root'
 })
@@ -15,14 +22,14 @@ export class CompraService {
       estado: 'En proceso',
       servicios: [
           {
-          id: '1',
+            idServicio: '1',
           nombre: 'Lavado de muebles',
           descripcion: 'Este es el servicio de lavado de muebles',
           imagen: 'https://mdbootstrap.com/img/new/standard/nature/181.jpg',
           precio: 5000
         },
         {
-          id: '2',
+          idServicio: '2',
           nombre: 'Lavado de alfombra',
           descripcion: 'Este es el servicio de lavado de alfombra',
           imagen: 'https://mdbootstrap.com/img/new/standard/nature/182.jpg',
@@ -38,14 +45,14 @@ export class CompraService {
       estado: 'En proceso',
       servicios: [
           {
-          id: '1',
+            idServicio: '1',
           nombre: 'Lavado de muebles',
           descripcion: 'Este es el servicio de lavado de muebles',
           imagen: 'https://mdbootstrap.com/img/new/standard/nature/181.jpg',
           precio: 8000
         },
         {
-          id: '2',
+          idServicio: '2',
           nombre: 'Lavado de alfombra',
           descripcion: 'Este es el servicio de lavado de alfombra',
           imagen: 'https://mdbootstrap.com/img/new/standard/nature/182.jpg',
@@ -55,10 +62,25 @@ export class CompraService {
     }
 ];
 
-  constructor() { }
+
+private compraUrl = servicePath + 'api/compra/';  // URL to web api
 
 
-  consultarCompras(): Compra[] {
-    return this.compras;
+  constructor(private http: HttpClient) { }
+
+
+
+
+  guardarCompra(compra: Compra): Observable<RespuestaDTO> {
+    return this.http.post<RespuestaDTO>(this.compraUrl + 'agregar', compra, httpOptions);
   }
+
+
+  consultarCompras(): Observable<Compra[]> {
+    return this.http.get<Compra[]>(this.compraUrl + 'listar', httpOptions);
+  }
+
+  /*consultarCompras(): Compra[] {
+    return this.compras;
+  }*/
 }

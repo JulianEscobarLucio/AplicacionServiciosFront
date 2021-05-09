@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Sevicio } from '../modelos/sevicio';
+import { Servicio } from '../modelos/sevicio';
 import { ServicioService } from '../servicios/servicio.service';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Compra } from '../modelos/compra';
+import { CompraService } from '../servicios/compra.service';
 
 
 @Component({
@@ -12,8 +13,8 @@ import { Compra } from '../modelos/compra';
 })
 export class ListaDeProductosComponent implements OnInit {
 
-  serviciosAquiridos: Sevicio[] = [];
-  servicios: Sevicio[] = [];
+  serviciosAquiridos: Servicio[] = [];
+  servicios: Servicio[] = [];
   @ViewChild('content', {static: false}) contenidoDelModal;
   total = 0;
   compra = new Compra();
@@ -21,9 +22,13 @@ export class ListaDeProductosComponent implements OnInit {
   mensajeTelefono = '';
   mensajeDireccion = '';
   mensajeboton = '';
+  mensajeExitoso1 = '';
+  mensajeExitoso2 = '';
+  mensajeFallido = '';
 
 
-  constructor(private servicioService: ServicioService, config: NgbModalConfig, private modalService: NgbModal) {
+  constructor(private servicioService: ServicioService, private compraService: CompraService,
+      config: NgbModalConfig, private modalService: NgbModal) {
       config.backdrop = 'static';
       config.keyboard = false;
 }
@@ -33,7 +38,7 @@ export class ListaDeProductosComponent implements OnInit {
   }
 
 
-  agregar(servicio: Sevicio): void {
+  agregar(servicio: Servicio): void {
     this.serviciosAquiridos.push(servicio);
     this.servicioService.modificarCantidad(this.serviciosAquiridos.length);
     console.log(servicio);
@@ -48,7 +53,7 @@ export class ListaDeProductosComponent implements OnInit {
     });
   }
 
-  quitar(servicio: Sevicio): void {
+  quitar(servicio: Servicio): void {
     const i = this.serviciosAquiridos.indexOf( servicio);
 
     if ( i !== -1 ) {
@@ -68,15 +73,32 @@ export class ListaDeProductosComponent implements OnInit {
     this.serviciosAquiridos.forEach(servicio => {
       this.total = this.total + servicio.precio;
     });
+    this.mensajeFallido = '';
+    this.mensajeExitoso1 = '';
+    this.mensajeExitoso2 = '';
     this.modalService.open(this.contenidoDelModal);
   }
 
 
-  terminar() {
+  terminarSolicitud() {
       if (this.validarCampos()) {
         return;
       }
       this.compra.servicios = this.serviciosAquiridos;
+      this.compraService.guardarCompra(this.compra).subscribe(
+        response => {
+          console.log(response.mensaje);
+          this.mensajeExitoso1 = 'La solicitud finalizó de manera exitosa,   ';
+          this.mensajeExitoso2 = ' nos estaremos comunicando contigo en el transcurso del día';
+        },
+        error => {
+          this.mensajeFallido = 'Ocurrio un error, intentelo de nuevo';
+          console.log(error.mensaje);
+        }
+      );
+      this.compra.nombreCliente = '';
+      this.compra.direccion = '';
+      this.compra.telefono = '';
       console.log(this.compra);
    }
 
