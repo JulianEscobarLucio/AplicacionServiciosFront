@@ -20,8 +20,8 @@
                                     <p class="card-text">
                                         {{servicio.descripcion}}
                                     </p>
-                                    <div [ngClass]="{'bloqueado': this.serviciosAquiridos.includes(servicio)}"><button type="button" id="agregar{{servicio.idServicio}}" class="btn btn-primary aling-center" (click)="agregar(servicio)">Agregar +</button></div>
-                                    <div [ngClass]="{'bloqueado': !this.serviciosAquiridos.includes(servicio)}"><button type="button" id="quitar{{servicio.idServicio}}" class="btn btn-danger" (click)="quitar(servicio)">Quitar -</button></div>
+                                    <div [ngClass]="{'bloqueado': this.serviciosAquiridos.includes(servicio)}"><button type="button" id="agregar" class="btn btn-primary aling-center" (click)="agregar(servicio)">Agregar +</button></div>
+                                    <div [ngClass]="{'bloqueado': !this.serviciosAquiridos.includes(servicio)}"><button type="button" id="quitar" class="btn btn-danger" (click)="quitar(servicio)">Quitar -</button></div>
                                 </div>
                             </div>
                         </div>

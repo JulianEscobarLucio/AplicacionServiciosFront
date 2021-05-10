@@ -95,6 +95,7 @@ export class ListaDeProductosComponent implements OnInit {
           this.mensajeExitoso1 = 'La solicitud finalizó de manera exitosa,   ';
           this.mensajeExitoso2 = ' nos estaremos comunicando contigo en el transcurso del día';
           this.transaccionTerminada = true;
+          this.serviciosAquiridos = [];
         },
         error => {
           this.mensajeFallido = 'Ocurrio un error, intentelo de nuevo';
