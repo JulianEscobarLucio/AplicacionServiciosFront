@@ -27,6 +27,10 @@ import { QuienesSomosComponent } from './quienes-somos/quienes-somos.component';
 import { SolicitarServicioComponent } from './solicitar-servicio/solicitar-servicio.component';
 import { HomePrivadoComponent } from './home-privado/home-privado.component';
 import { NavegadorPrivadoComponent } from './navegador-privado/navegador-privado.component';
+import {NgxMaskModule} from 'ngx-mask'
+
+import { IConfig } from 'ngx-mask';
+export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
 // import { NgxSpinnerModule } from 'ngx-spinner';
 
 
@@ -61,7 +65,7 @@ import { NavegadorPrivadoComponent } from './navegador-privado/navegador-privado
     AppRoutingModule,
     NgbModule,
     FormsModule,
-    HttpClientModule,
+    HttpClientModule
   ],
   schemas:[
     CUSTOM_ELEMENTS_SCHEMA

@@ -13,7 +13,6 @@
                     <th scope="col">Nombre del contacto</th>
                     <th scope="col">Dirección</th>
                     <th scope="col">Telefono</th>
-                    <th scope="col">Servicios</th>
                     <th scope="col">Estado</th>
                     <th scope="col">Estado</th>
 
@@ -25,7 +24,6 @@
                     <td>{{compra.nombreCliente}}</td>
                     <td>{{compra.direccion}}</td>
                     <td>{{compra.telefono}}</td>
-                    <td>Otto</td>
                     <td>{{compra.estado}}</td>
                     <td><button class="btn btn-success" (click)="verDetalleSolicitud(compra)">Ver detalle</button></td>
 
@@ -54,7 +52,6 @@
                             <th scope="col">Nombre del contacto</th>
                             <th scope="col">Dirección</th>
                             <th scope="col">Telefono</th>
-                            <th scope="col">Estado</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -63,20 +60,6 @@
                             <td>{{compraLocal.nombreCliente}}</td>
                             <td>{{compraLocal.direccion}}</td>
                             <td>{{compraLocal.telefono}}</td>
-                            <td>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                    <label class="form-check-label" for="flexRadioDefault1">
-                                  En proceso
-                                </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                                    <label class="form-check-label" for="flexRadioDefault2">
-                                  Finalizado
-                                </label>
-                                </div>
-                            </td>
                         </tr>
                     </tbody>
                 </table>
