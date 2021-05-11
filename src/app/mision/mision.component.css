@@ -21,3 +21,8 @@ h2 {
 h5 {
     color: #5e81e0;
 }
+
+.card {
+    width: 95%;
+    height: 100%;
+}
